@@ -15,13 +15,13 @@
 
 <body>
   <div id="app">
-    <!-- Campo di input e pulsante inserimento -->
-    <input type="text" v-model="newTodo" placeholder="Aggiungi una nuova attività">
+    <input type="text" v-model="newTodo" placeholder="Aggiungi una nuova attività" @keyup.enter="addTodo">
     <button class="add-btn" @click="addTodo">Aggiungi</button>
 
     <ul>
+      <!-- Evento click sul testo per invertire 'done' -->
       <li v-for="(todo, index) in todos" :key="index">
-        <span :class="{ done: todo.done }">{{ todo.text }}</span>
+        <span @click="toggleDone(todo)" :class="{ done: todo.done }">{{ todo.text }}</span>
         <button @click="deleteTodo(index)">X</button>
       </li>
     </ul>

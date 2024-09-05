@@ -1,9 +1,9 @@
-// milestone 1
 const { createApp } = Vue;
 
 createApp({
   data() {
     return {
+      newTodo: '',
       todos: [
         { text: 'Studiare Vue.js', done: false },
         { text: 'Fare esercizio di programmazione', done: false },
@@ -12,17 +12,22 @@ createApp({
     };
   },
   methods: {
-    // Funzione di eliminazione - milestone 2
     deleteTodo(index) {
       this.todos.splice(index, 1);
+    },
+    addTodo() {
+      if (this.newTodo.trim() !== '') {
+        this.todos.push({ text: this.newTodo, done: false });
+        this.newTodo = '';
+      }
+    },
+    // Funzione per invertire 'done'
+    toggleDone(todo) {
+      todo.done = !todo.done;
     }
   }
 }).mount('#app');
 
-//milestone 3
-//1. campo input e pulsante inserimento
-//2. aggiungere nuovo todo
-
 //bonus
-//1. evento click al testo
-//2. invertire valore della proprietà al click
+//1. evento click al testo (done)
+//2. invertire valore della proprietà al click (done)
