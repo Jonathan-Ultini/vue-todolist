@@ -15,9 +15,12 @@
 
 <body>
   <div id="app">
+    <!-- Campo di input e pulsante inserimento -->
+    <input type="text" v-model="newTodo" placeholder="Aggiungi una nuova attività">
+    <button class="add-btn" @click="addTodo">Aggiungi</button>
+
     <ul>
-      <!-- Visualizzazione della lista -->
-      <li v-for="todo in todos" :key="todo.text">
+      <li v-for="(todo, index) in todos" :key="index">
         <span :class="{ done: todo.done }">{{ todo.text }}</span>
         <button @click="deleteTodo(index)">X</button>
       </li>
