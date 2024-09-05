@@ -4,19 +4,20 @@ const { createApp } = Vue;
 createApp({
   data() {
     return {
-      // Creare la struttura dati
       todos: [
         { text: 'Studiare Vue.js', done: false },
         { text: 'Fare esercizio di programmazione', done: false },
         { text: 'Completare il progetto', done: true }
       ]
     };
+  },
+  methods: {
+    // Funzione di eliminazione - milestone 2
+    deleteTodo(index) {
+      this.todos.splice(index, 1);
+    }
   }
 }).mount('#app');
-
-//milestone 2
-//1. aggiungere il ulsante "X"
-//2. funzione di eliminazione
 
 //milestone 3
 //1. campo input e pulsante inserimento

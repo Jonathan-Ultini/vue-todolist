@@ -19,6 +19,7 @@
       <!-- Visualizzazione della lista -->
       <li v-for="todo in todos" :key="todo.text">
         <span :class="{ done: todo.done }">{{ todo.text }}</span>
+        <button @click="deleteTodo(index)">X</button>
       </li>
     </ul>
   </div>
