@@ -14,8 +14,14 @@
 </head>
 
 <body>
-
-
+  <div id="app">
+    <ul>
+      <!-- Visualizzazione della lista -->
+      <li v-for="todo in todos" :key="todo.text">
+        <span :class="{ done: todo.done }">{{ todo.text }}</span>
+      </li>
+    </ul>
+  </div>
 
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
